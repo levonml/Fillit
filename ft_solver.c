@@ -6,14 +6,16 @@
 /*   By: dvlassen <dvlassen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 18:22:53 by dvlassen          #+#    #+#             */
-/*   Updated: 2020/08/04 15:39:11 by dvlassen         ###   ########.fr       */
+/*   Updated: 2020/08/14 18:35:59 by lstepany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 int		ft_solver(t_map *map, t_tetramino *head, int mapsize)
 {
+	int i;
 	if (!head)
 		return (1);
 	head->x_line = 0;
@@ -25,7 +27,9 @@ int		ft_solver(t_map *map, t_tetramino *head, int mapsize)
 			if (!overlap(map, head))
 			{
 				place(head, map, head->alphabet);
-				if (ft_solver(map, head->next, mapsize))
+				i = ft_solver(map, head->next, mapsize);
+				printf("i = %d\n", i);
+				if (i != 0)
 					return (1);
 				else
 					place(head, map, '.');
