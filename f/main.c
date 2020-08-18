@@ -42,5 +42,5 @@ int main (int argc, char **argv)
       //ft_putstr(buf);
       ft_fillit(&bf);
     }
-  return (0);
+   return (0);
 }
